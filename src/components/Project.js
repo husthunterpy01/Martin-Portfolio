@@ -1,45 +1,65 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
+import chatbotImg from '../image/proj_image/chatbot_proj.png';
+import movieMgmtImg from '../image/proj_image/movie_proj.png';
+import beeImg from '../image/proj_image/bee_proj.png';
+import nliImg from '../image/proj_image/nli_proj.png';
 
+// Personal project data
 const projectData = [
   {
-    title: 'E-Commerce Platform',
-    desc: 'Full-stack online store with Stripe & user auth',
-    tech: ['React', 'Node.js', 'MongoDB'],
-    live: 'https://example.com',
-    github: 'https://github.com',
-    img: '/images/ecom.png'
+    title: 'RAG Summary Chatbot System',
+    desc: 'A retrieval-augmented generation (RAG) chatbot that provides concise summaries from large documents for Ecommerce customer support.',
+    tech: ['Python', 'Pytorch', 'MongoDB', 'Streamlit'],
+    live: '#',
+    github: 'https://github.com/husthunterpy01/rag-chatbot',
+    img: chatbotImg
+  },
+    {
+    title: 'Natural Language Inference with ESIM-based model',
+    desc: 'Developed and evaluated multiple deep learning architectures for a Natural Language Inference (NLI) task using a novel dataset constructed from science-exam questions and web sentences. The goal was to determine entailment relations between premise–hypothesis pairs, focusing not just on model performance but on architecture innovation, ablation studies (particularly attention mechanisms), and qualitative interpretation of attention behaviour.',
+    tech: ['Python', 'Pytorch', 'Nltk'],
+    github: 'https://github.com/husthunterpy01/CITS4012/tree/main/Assignment2',        
+    live: '', 
+    img: nliImg
   },
   {
-    title: 'Task Manager',
-    desc: 'Real-time collaborative to-do app',
-    tech: ['React', 'Firebase', 'Tailwind'],
+    title: 'Movie Management System',
+    desc: 'A web application for managing movie collections, including features for adding, editing, and deleting movie entries.',
+    tech: ['JavaSwing', 'MySQL'],
     live: '#',
-    github: '#',
-    img: '/images/task.png'
+    github: 'https://github.com/husthunterpy01/movie-management-system',
+    img: movieMgmtImg
+  },
+  {
+    title: 'Bee Sound Identification System',
+    desc: 'A published deep learning research project that analyzes hive audio using spectrograms and CNN models to classify bee colony health states. This work was accepted and published in Ecological Informatics (Elsevier, 2023).',
+    tech: ['Python', 'Pytorch', 'Librosa', 'Wandb'],
+    github: '#',        
+    live: 'https://doi.org/10.1016/j.ecoinf.2023.102274', 
+    img: beeImg
   }
+
 ];
 
 const Projects = () => {
-  return React.createElement(
-    'section',
-    { id: 'projects', className: 'projects' },
-    React.createElement('h2', null, 'My Projects'),
-    React.createElement(
-      'div',
-      { className: 'projects-grid' },
-      projectData.map((proj, i) =>
-        React.createElement(ProjectCard, {
-          key: i,
-          title: proj.title,
-          desc: proj.desc,
-          tech: proj.tech,
-          live: proj.live,
-          github: proj.github,
-          img: proj.img
-        })
-      )
-    )
+  return (
+    <section id="projects" className="projects">
+      <h2>My Projects</h2>
+      <div className="projects-grid">
+        {projectData.map((proj, i) => (
+          <ProjectCard
+            key={i}
+            title={proj.title}
+            desc={proj.desc}
+            tech={proj.tech}
+            live={proj.live}
+            github={proj.github}
+            img={proj.img}
+          />
+        ))}
+      </div>
+    </section>
   );
 };
 

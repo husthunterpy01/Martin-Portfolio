@@ -7,7 +7,7 @@ const Navbar = () => {
     React.createElement(
       'div',
       { className: 'logo' },
-      'Martin'
+      'Martin Portfolio'
     ),
     React.createElement(
       'ul',
@@ -15,7 +15,9 @@ const Navbar = () => {
       React.createElement('li', null, React.createElement('a', { href: '#' }, 'Home')),
       React.createElement('li', null, React.createElement('a', { href: '#about' }, 'About')),
       React.createElement('li', null, React.createElement('a', { href: '#projects' }, 'Projects')),
-      React.createElement('li', null, React.createElement('a', { href: '#contact' }, 'Contact'))
+      React.createElement('li', null, React.createElement('a', { href: '#contact' }, 'Contact')),
+      React.createElement('li', null, React.createElement('a', { href: '#experience' }, 'Experience')),
+      React.createElement('li', null, React.createElement('a', { href: '#education' }, 'Education'))
     )
   );
 };
