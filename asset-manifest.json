@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Martin-Portfolio/static/css/main.c98a54b2.css",
-    "main.js": "/Martin-Portfolio/static/js/main.ca38ba44.js",
+    "main.css": "/Martin-Portfolio/static/css/main.8da13144.css",
+    "main.js": "/Martin-Portfolio/static/js/main.b4e0e463.js",
     "static/js/453.8febcf4d.chunk.js": "/Martin-Portfolio/static/js/453.8febcf4d.chunk.js",
     "static/media/movie_proj.png": "/Martin-Portfolio/static/media/movie_proj.4b476fd1302ce6b15281.png",
     "static/media/nli_proj.png": "/Martin-Portfolio/static/media/nli_proj.55a19c1e3e08bfdb2298.png",
     "static/media/chatbot_proj.png": "/Martin-Portfolio/static/media/chatbot_proj.c8162694ba91efd9535f.png",
     "static/media/bee_proj.png": "/Martin-Portfolio/static/media/bee_proj.40085db3451e65fa863c.png",
     "index.html": "/Martin-Portfolio/index.html",
-    "main.c98a54b2.css.map": "/Martin-Portfolio/static/css/main.c98a54b2.css.map",
-    "main.ca38ba44.js.map": "/Martin-Portfolio/static/js/main.ca38ba44.js.map",
+    "main.8da13144.css.map": "/Martin-Portfolio/static/css/main.8da13144.css.map",
+    "main.b4e0e463.js.map": "/Martin-Portfolio/static/js/main.b4e0e463.js.map",
     "453.8febcf4d.chunk.js.map": "/Martin-Portfolio/static/js/453.8febcf4d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c98a54b2.css",
-    "static/js/main.ca38ba44.js"
+    "static/css/main.8da13144.css",
+    "static/js/main.b4e0e463.js"
   ]
 }
