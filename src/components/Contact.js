@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
+// ──────── DEBUG CONFIG ────────
+const {
+  REACT_APP_EMAILJS_PUBLIC_KEY = 'MISSING_PUBLIC_KEY',
+  REACT_APP_EMAILJS_SERVICE_ID = 'MISSING_SERVICE_ID',
+  REACT_APP_EMAILJS_TEMPLATE_ID = 'MISSING_TEMPLATE_ID',
+} = process.env;
+
+console.log('EmailJS Config:', {
+  service: REACT_APP_EMAILJS_SERVICE_ID,
+  template: REACT_APP_EMAILJS_TEMPLATE_ID,
+  publicKey: REACT_APP_EMAILJS_PUBLIC_KEY,
+});
+
 const Contact = () => {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState(null); // 'success' | 'error' | null
   const [isSending, setIsSending] = useState(false);
 
@@ -20,28 +29,35 @@ const Contact = () => {
     setIsSending(true);
     setStatus(null);
 
+    const payload = {
+      name: form.name,
+      email: form.email,
+      title: form.message,
+    };
+    console.log('Sending to EmailJS:', payload);
+
     try {
-      await emailjs.send(
-        'YOUR_SERVICE_ID',   // <- replace
-        'YOUR_TEMPLATE_ID',  // <- replace
-        {
-          from_name: form.name,
-          from_email: form.email,
-          message: form.message,
-        },
-        'YOUR_PUBLIC_KEY'    // <- replace
+      const result = await emailjs.send(
+        REACT_APP_EMAILJS_SERVICE_ID,
+        REACT_APP_EMAILJS_TEMPLATE_ID,
+        payload,
+        REACT_APP_EMAILJS_PUBLIC_KEY
       );
 
-      setIsSending(false);
+      console.log('EmailJS SUCCESS:', result);
       setStatus('success');
       setForm({ name: '', email: '', message: '' });
-
-      // hide notification after 5s
-      setTimeout(() => setStatus(null), 5000);
     } catch (err) {
-      console.error(err);
-      setIsSending(false);
+      console.error('EmailJS FAILED:', {
+        message: err.message,
+        text: err.text,
+        status: err.status,
+        details: err,
+      });
       setStatus('error');
+    } finally {
+      setIsSending(false);
+      // Auto-hide toast after 5 seconds
       setTimeout(() => setStatus(null), 5000);
     }
   };
@@ -50,7 +66,7 @@ const Contact = () => {
     <section id="contact" className="contact">
       <h2>Get In Touch</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <input
           type="text"
           name="name"
@@ -69,7 +85,7 @@ const Contact = () => {
         />
         <textarea
           name="message"
-          placeholder="Your Message"
+          placeholder="Your Message (will be used as title)"
           rows="5"
           value={form.message}
           onChange={handleChange}
@@ -87,19 +103,41 @@ const Contact = () => {
         <a href="https://github.com/husthunterpy01" target="_blank" rel="noreferrer">
           GitHub
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noreferrer">
-          Twitter
-        </a>
       </div>
 
-      {/* 5-second notification */}
+      {/* ──────── TOP-RIGHT TOAST ──────── */}
       {status && (
-        <div className={`toast ${status === 'success' ? 'toast-success' : 'toast-error'}`}>
+        <div
+          style={{
+            position: 'fixed',
+            top: '1rem',
+            right: '1rem',
+            minWidth: '300px',
+            padding: '1rem 1.5rem',
+            borderRadius: '8px',
+            color: '#fff',
+            fontWeight: '600',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            zIndex: 1000,
+            animation: 'toastFade 5s forwards',
+            backgroundColor: status === 'success' ? '#10b981' : '#ef4444',
+          }}
+        >
           {status === 'success'
-            ? '✅ Your message has been sent successfully!'
-            : '❌ Something went wrong. Please try again.'}
+            ? 'Your message has been sent successfully!'
+            : 'Something went wrong. Please try again.'}
         </div>
       )}
+
+      {/* ──────── TOAST ANIMATION (inline) ──────── */}
+      <style jsx>{`
+        @keyframes toastFade {
+          0%   { opacity: 0; transform: translateY(-10px); }
+          10%  { opacity: 1; transform: translateY(0); }
+          85%  { opacity: 1; transform: translateY(0); }
+          100% { opacity: 0; transform: translateY(-10px); }
+        }
+      `}</style>
     </section>
   );
 };
