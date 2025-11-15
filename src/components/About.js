@@ -9,7 +9,7 @@ const techStacks = [
   {
     label: 'Web & Application Development',
     icon: '🌐',
-    items: ['ASP.NET (6/8, WPF, WinForms)', 'FastAPI', 'Flask', 'ReactJS'],
+    items: ['ASP.NET', 'FastAPI', 'Flask', 'ReactJS'],
   },
   {
     label: 'AI & Machine Learning',
@@ -24,7 +24,7 @@ const techStacks = [
   {
     label: 'Cloud Platforms',
     icon: '☁️',
-    items: ['Azure (DevOps, SQL, Functions)', 'AWS (EC2, Redshift, S3, Glue, Athena)'],
+    items: ['Azure', 'AWS'],
   },
   {
     label: 'Data & Orchestration',

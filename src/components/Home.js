@@ -6,7 +6,7 @@ function Home() {
         <p className="hero-tag">Hello, I'm</p>
         <h1 className="hero-title">Martin Dang</h1>
         <p className="hero-subtitle">
-          Software Developer · Machine Learning & Data · Web Engineering
+          Software Engineer · Machine Learning & Data Enthusiast
         </p>
 
         <p className="hero-description">

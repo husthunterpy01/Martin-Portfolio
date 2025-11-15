@@ -28,7 +28,7 @@ const projectData = [
     desc: 'A web application for managing movie collections, including features for adding, editing, and deleting movie entries.',
     tech: ['JavaSwing', 'MySQL'],
     live: '#',
-    github: 'https://github.com/husthunterpy01/movie-management-system',
+    github: 'https://github.com/husthunterpy01/Movie-Recommendation-System',
     img: movieMgmtImg
   },
   {
