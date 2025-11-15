@@ -407,8 +407,8 @@ section h2 {
 
 .timeline {
   position: relative;
-  margin-left: 20px;
-  padding-left: 20px;
+  margin-left: 28px;
+  padding-left: 28px;
   border-left: 2px solid rgba(148, 163, 184, 0.3);
 }
 
@@ -423,7 +423,7 @@ section h2 {
 
 .timeline-dot {
   position: absolute;
-  left: -11px;
+  left: -37px;
   top: 18px;
   width: 12px;
   height: 12px;
@@ -431,6 +431,7 @@ section h2 {
   border: 2px solid #38bdf8;
   border-radius: 50%;
   transition: background 0.2s ease, box-shadow 0.2s ease;
+  z-index: 1;
 }
 
 .timeline-dot.active-dot {
@@ -443,7 +444,7 @@ section h2 {
   border: none;
   background: transparent;
   color: inherit;
-  padding: 0.6rem 0.8rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 0.6rem;
   display: flex;
   justify-content: space-between;
