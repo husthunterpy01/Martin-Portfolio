@@ -12,7 +12,7 @@ const projectData = [
     desc: 'A retrieval-augmented generation (RAG) chatbot that provides concise summaries from large documents for Ecommerce customer support.',
     tech: ['Python', 'Pytorch', 'MongoDB', 'Streamlit'],
     live: '#',
-    github: 'https://github.com/husthunterpy01/rag-chatbot',
+    github: 'https://github.com/husthunterpy01/Dialog-Summarization-System',
     img: chatbotImg
   },
     {

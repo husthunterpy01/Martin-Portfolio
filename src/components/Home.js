@@ -16,7 +16,14 @@ function Home() {
 
         <div className="hero-actions">
           <a href="#projects" className="btn primary">View Projects</a>
-          <a href="#contact" className="btn outline">Contact Me</a>
+          <a
+            href="https://drive.google.com/file/d/1kRKkoFhlW6BJZf6_g_SNKiJGusAt62K3/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+            className="btn outline"
+          >
+            View My CV
+          </a>
         </div>
       </div>
     </section>

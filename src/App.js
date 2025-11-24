@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
+import ReleaseInfo from './components/ReleaseInfo';
 import KeyboardBackground from './components/KeyboardBackground';
 import CodeTypingBackground from './components/CodeTypingBackground';
 import CelestialBackground from './components/CelestialBackground';
@@ -85,6 +86,7 @@ function App() {
         <Experience />
         <Education/>
         <Projects />
+        <ReleaseInfo />
         <Contact />
       </main>
       <Footer />
