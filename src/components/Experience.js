@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { FaBuilding, FaBriefcase, FaChevronDown } from "react-icons/fa";
+import fptIcon from '../image/company_icon/fpt.png';
+import viettelIcon from '../image/company_icon/viettel.png';
+import filIcon from '../image/company_icon/fil.png';
 
 const experiences = [
   {
     role: "Software Developer",
     company: "FPT Software",
+    companyIcon: fptIcon,
     location: "Hanoi, Vietnam",
     period: "Jan 2024 – Jan 2025",
     details: [
@@ -17,6 +21,7 @@ const experiences = [
   {
     role: "Undergraduate Student Researcher (Part-time)",
     company: "Future Internet Lab – Hanoi University of Science and Technology",
+    companyIcon: filIcon,
     location: "Hanoi, Vietnam",
     period: "Oct 2021 – Nov 2023",
     details: [
@@ -28,6 +33,7 @@ const experiences = [
   {
     role: "Core Network Engineer Intern",
     company: "Viettel Cyber Security",
+    companyIcon: viettelIcon,
     location: "Hanoi, Vietnam",
     period: "Jul 2022 – Dec 2022",
     details: [
@@ -61,7 +67,15 @@ const Experience = () => {
                 onClick={() => toggle(idx)}
               >
                 <div className="timeline-header-main">
-                  <FaBriefcase className="timeline-icon" />
+                  {exp.companyIcon ? (
+                    <img 
+                      src={exp.companyIcon} 
+                      alt={`${exp.company} logo`}
+                      className="timeline-icon timeline-company-icon"
+                    />
+                  ) : (
+                    <FaBriefcase className="timeline-icon" />
+                  )}
                   <div>
                     <h3 className="timeline-role">{exp.role}</h3>
                     <p className="timeline-company">

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { FaGraduationCap, FaUniversity, FaChevronDown } from 'react-icons/fa';
+import uwaIcon from '../image/school_icon/logo_uwa.png';
+import hustIcon from '../image/school_icon/hust_logo.png';
 
 const education = [
   {
     degree: "Master of Information Technology (AI Specialisation)",
     school: "University of Western Australia (UWA)",
-    period: "2024 – 2026",
+    schoolIcon: uwaIcon,
+    period: "2025 – 2026",
     details: [
       "Focused on Machine Learning, Natural Language Processing, and AI systems.",
       "Strong coursework in distributed systems, cloud computing, and software design."
@@ -14,6 +17,7 @@ const education = [
   {
     degree: "Bachelor of Electronics and Telecommunications Engineering",
     school: "Hanoi University of Science and Technology",
+    schoolIcon: hustIcon,
     period: "2019 – 2023",
     details: [
       "Completed foundational and advanced coursework in electronics, programming, and telecommunications systems.",
@@ -47,7 +51,15 @@ const Education = () => {
               onClick={() => toggle(idx)}
             >
               <div className="timeline-header-main">
-                <FaGraduationCap className="timeline-icon" />
+                {edu.schoolIcon ? (
+                  <img 
+                    src={edu.schoolIcon} 
+                    alt={`${edu.school} logo`}
+                    className="timeline-icon timeline-school-icon"
+                  />
+                ) : (
+                  <FaGraduationCap className="timeline-icon" />
+                )}
                 <div>
                   <h3 className="timeline-role">{edu.degree}</h3>
                   <p className="timeline-company">

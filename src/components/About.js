@@ -1,4 +1,5 @@
 import React from 'react';
+import TechIcon from './TechIcon';
 
 const techStacks = [
   {
@@ -7,7 +8,7 @@ const techStacks = [
     items: ['C#', 'Python', 'Java', 'JavaScript'],
   },
   {
-    label: 'Web & Application Development',
+    label: 'Web & Application',
     icon: '🌐',
     items: ['ASP.NET', 'FastAPI', 'Flask', 'ReactJS'],
   },
@@ -59,7 +60,10 @@ const About = () => {
             </div>
             <div className="skills">
               {stack.items.map((item) => (
-                <span key={item}>{item}</span>
+                <span key={item} className="skill-item">
+                  <TechIcon techName={item} className="skill-tech-icon" />
+                  {item}
+                </span>
               ))}
             </div>
           </div>

@@ -96,15 +96,6 @@ const Contact = () => {
         </button>
       </form>
 
-      <div className="social-links">
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-          LinkedIn
-        </a>
-        <a href="https://github.com/husthunterpy01" target="_blank" rel="noreferrer">
-          GitHub
-        </a>
-      </div>
-
       {/* ──────── TOP-RIGHT TOAST ──────── */}
       {status && (
         <div
