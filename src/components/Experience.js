@@ -3,15 +3,25 @@ import { FaBuilding, FaBriefcase, FaChevronDown } from "react-icons/fa";
 import fptIcon from '../image/company_icon/fpt.png';
 import viettelIcon from '../image/company_icon/viettel.png';
 import filIcon from '../image/company_icon/fil.png';
-import fsdIcon from '../image/company_icon/fsds.png';
-
+import fsdsIcon from '../image/company_icon/fsds.png';
+import shootingStarIcon from '../image/company_icon/shooting_stars.png';
 const experiences = [
+    {
+    role: "Sharepoint System and Automation Engineer Intern",
+    company: "Shooting Stars",
+    companyIcon: shootingStarIcon,
+    location: "Perth, Australia",
+    period: "July 2026 – Now",
+    details: [
+      "Coming soon"
+  ]
+  },
   {
     role: "Machine Learning Engineer Intern",
     company: "Full Stack Data Science",
-    companyIcon: fsdIcon,
-    location: "Perth, Australia (Remote)",
-    period: "Nov 2025 – Now",
+    companyIcon: fsdsIcon,
+    location: "Remote",
+    period: "Nov 2025 – March 2026",
     details: [
       "Researched and evaluated high-quality Data & AI content sources and designed the scraping strategy; implemented Selenium crawlers for multiple sources with de-duplication and structured data output.",
       "Built and deployed an end-to-end data pipeline on Azure Cloud with CI/CD, automating the ingestion, cleaning and enrichment of scraped posts, and adding monitoring to keep track of job health.",

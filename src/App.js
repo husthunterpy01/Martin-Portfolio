@@ -8,6 +8,7 @@ import Projects from './components/Project';
 import Contact from './components/Contact';
 import Education from './components/Education';
 import Experience from './components/Experience';
+import Volunteer from './components/Volunteer';
 import Footer from './components/Footer';
 import ReleaseInfo from './components/ReleaseInfo';
 import KeyboardBackground from './components/KeyboardBackground';
@@ -84,6 +85,7 @@ function App() {
         <Home />
         <About />
         <Experience />
+        <Volunteer />
         <Education/>
         <Projects />
         <ReleaseInfo />

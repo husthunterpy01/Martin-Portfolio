@@ -1633,6 +1633,11 @@ body.light-mode .footer-social-link:hover {
 
 /* ---------------- RESPONSIVE ---------------- */
 
+/* Hide mobile toggle button by default (show only on small screens) */
+.mobile-nav-toggle {
+  display: none;
+}
+
 @media (max-width: 640px) {
   main {
     padding-top: 4.5rem;
@@ -1688,6 +1693,77 @@ body.light-mode .footer-social-link:hover {
 
   .footer-social-links {
     justify-content: center;
+  }
+
+  /* Center hero content vertically and horizontally on small screens */
+  .hero {
+    padding: 2rem 0 2rem;
+    min-height: calc(100vh - 56px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 640px;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+
+  .hero-description {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Mobile navbar styles */
+@media (max-width: 640px) {
+  .mobile-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.05rem;
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.25rem;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.mobile {
+    display: none;
+    position: absolute;
+    top: 56px;
+    right: 12px;
+    left: 12px;
+    background: rgba(2,6,23,0.9);
+    border-radius: 0.6rem;
+    padding: 0.8rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 12px 30px rgba(2,6,23,0.6);
+    z-index: 60;
+  }
+
+  .nav-links.mobile.open {
+    display: flex;
+  }
+
+  .nav-links.mobile li a {
+    display: block;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.95rem;
+  }
+
+  /* Keep theme toggle visible */
+  .theme-toggle {
+    margin-left: 0.25rem;
   }
 }
 
@@ -1937,5 +2013,69 @@ body.light-mode .timeline-details li {
   100% {
     opacity: 0;
     transform: translateY(-4px);
+  }
+}
+
+/* Mobile-specific adjustments for timeline and compact sections */
+@media (max-width: 640px) {
+  .timeline {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .interactive-item {
+    margin-bottom: 1.2rem;
+    padding-left: 0;
+  }
+
+  .timeline-dot {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    margin: 0 0.6rem 0 0;
+    width: 12px;
+    height: 12px;
+  }
+
+  .timeline-header {
+    padding: 0.65rem 0.9rem;
+    flex-wrap: nowrap;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .timeline-header-main {
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .timeline-company-icon,
+  .timeline-school-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .timeline-role {
+    font-size: 0.95rem;
+  }
+
+  .timeline-company,
+  .timeline-meta {
+    font-size: 0.82rem;
+  }
+
+  .chevron {
+    font-size: 1rem;
+  }
+
+  .timeline-details-wrapper.open {
+    max-height: 1000px;
+  }
+
+  .timeline-details {
+    padding-left: 0.9rem;
+    font-size: 0.95rem;
   }
 }

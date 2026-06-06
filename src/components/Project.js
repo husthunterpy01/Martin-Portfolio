@@ -4,7 +4,8 @@ import chatbotImg from '../image/proj_image/chatbot_proj.png';
 import movieMgmtImg from '../image/proj_image/movie_proj.png';
 import beeImg from '../image/proj_image/bee_proj.png';
 import nliImg from '../image/proj_image/nli_proj.png';
-
+import defaultImg from '../image/proj_image/project_placeholder.png';
+import swanflipImg from '../image/proj_image/swan_flip.png';
 // Personal project data
 const projectData = [
   {
@@ -22,6 +23,22 @@ const projectData = [
     github: 'https://github.com/husthunterpy01/CITS4012/tree/main/Assignment2',        
     live: '', 
     img: nliImg
+  },
+  {
+    title: 'MLops systems for GraphRag of youtube script analysis',
+    desc: 'Coming soon.',
+    tech: ['FastAPI','Nginx','Docker','AWS', 'Kubeflow', 'Ansible', 'Pytorch','Flink'],
+    github: '' ,
+    live: '',
+    img: defaultImg
+  },
+  {
+    title: 'Swanflip Marketplace - a UWA marketplace for students',
+    desc: 'Developed a full-stack web application for UWA students to buy and sell second-hand items, featuring user authentication, product listings, search functionality, and a responsive design.',
+    tech: ['Flask', 'SocketIO', 'Sqlite', 'TailwindCSS'],
+    github: 'https://github.com/husthunterpy01/SwanFlip-Marketplace' ,
+    live: '',
+    img: swanflipImg
   },
   {
     title: 'Movie Management System',
