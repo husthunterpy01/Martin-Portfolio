@@ -1,3 +1,17 @@
+:root {
+  --accent: #818cf8;
+  --accent-hover: #6366f1;
+  --accent-light: #a5b4fc;
+  --accent-rgb: 129, 140, 248;
+}
+
+body.light-mode {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-light: #6366f1;
+  --accent-rgb: 79, 70, 229;
+}
+
 html {
   scroll-behavior: smooth;
 }

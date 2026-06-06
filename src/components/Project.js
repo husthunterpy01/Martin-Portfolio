@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaArrowRight, FaPenNib } from 'react-icons/fa';
 import ProjectCard from './ProjectCard';
 import chatbotImg from '../image/proj_image/chatbot_proj.png';
 import movieMgmtImg from '../image/proj_image/movie_proj.png';
@@ -6,6 +7,10 @@ import beeImg from '../image/proj_image/bee_proj.png';
 import nliImg from '../image/proj_image/nli_proj.png';
 import defaultImg from '../image/proj_image/project_placeholder.png';
 import swanflipImg from '../image/proj_image/swan_flip.png';
+
+// TODO: replace with your real blog URL once it's live
+const BLOG_URL = 'https://github.com/husthunterpy01';
+
 // Personal project data
 const projectData = [
   {
@@ -76,6 +81,25 @@ const Projects = () => {
           />
         ))}
       </div>
+
+      <a
+        href={BLOG_URL}
+        target="_blank"
+        rel="noreferrer"
+        className="blog-callout"
+      >
+        <span className="blog-callout-icon" aria-hidden="true">
+          <FaPenNib />
+        </span>
+        <span className="blog-callout-text">
+          <strong>Curious how these work under the hood?</strong>
+          <span>I write about the mechanics on my blog.</span>
+        </span>
+        <span className="blog-callout-cta">
+          Visit my blog
+          <FaArrowRight aria-hidden="true" />
+        </span>
+      </a>
     </section>
   );
 };
