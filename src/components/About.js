@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaGraduationCap, FaUniversity, FaChevronDown, FaRegCalendarAlt } from 'react-icons/fa';
 import TechIcon from './TechIcon';
+import HoloCube from './HoloCube';
 import uwaIcon from '../image/school_icon/logo_uwa.png';
 import hustIcon from '../image/school_icon/hust_logo.png';
 
@@ -90,6 +91,8 @@ const About = () => {
           the wild — and I&apos;m always looking for opportunities to turn complex,
           messy problems into clear, well-engineered solutions.
         </p>
+
+        <HoloCube />
 
         <div className="stack-grid" id="tech-stack">
           {techStacks.map((stack) => (

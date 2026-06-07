@@ -1,9 +1,14 @@
 import React from 'react';
 
-const ProjectCard = ({ title, desc, tech, live, github, img }) => {
+const ProjectCard = ({ title, desc, tech, live, github, img, topic }) => {
   return (
     <article className="project-card">
-      {img && <img src={img} alt={title} className="project-image" />}
+      {img && (
+        <div className="project-image-wrap">
+          <img src={img} alt={title} className="project-image" />
+          {topic && <span className="project-topic-badge">{topic}</span>}
+        </div>
+      )}
 
       <h3 className="project-title">{title}</h3>
       <p className="project-desc">{desc}</p>
