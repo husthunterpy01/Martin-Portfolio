@@ -8,6 +8,7 @@ import {
   SiFastapi,
   SiFlask,
   SiReact,
+  SiSpringboot,
   // AI & Machine Learning
   SiPytorch,
   SiTensorflow,
@@ -18,21 +19,15 @@ import {
   SiDocker,
   SiApachespark,
   SiApachekafka,
+  SiMlflow,
+  SiKubernetes,
+  SiApacheflink,
+  SiAnsible,
+  SiNginx,
+  SiTerraform,
+  SiApacheairflow,
 } from 'react-icons/si';
-
-// Custom C# icon SVG
-const CSharpIcon = ({ className }) => (
-  <svg 
-    className={className}
-    width="16" 
-    height="16" 
-    viewBox="0 0 24 24" 
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.568 16.234c-.23.384-.576.576-1.038.576-.23 0-.46-.058-.69-.173l-1.15.69c.23.115.46.23.69.345.576.23 1.15.345 1.726.345 1.15 0 2.074-.576 2.768-1.726.23-.345.345-.806.345-1.382 0-.576-.115-1.037-.345-1.382-.23-.345-.576-.576-1.038-.806l-1.15.69c.23.23.345.576.345 1.038 0 .23-.058.46-.173.69zm-2.768-2.768c-.23.23-.576.345-1.038.345-.23 0-.46-.058-.69-.173l-1.15.69c.23.115.46.23.69.345.576.23 1.15.345 1.726.345 1.15 0 2.074-.576 2.768-1.726.23-.345.345-.806.345-1.382 0-.576-.115-1.037-.345-1.382-.23-.345-.576-.576-1.038-.806l-1.15.69c.23.23.345.576.345 1.038 0 .23-.058.46-.173.69zm-2.768-2.768c-.23.23-.576.345-1.038.345-.23 0-.46-.058-.69-.173l-1.15.69c.23.115.46.23.69.345.576.23 1.15.345 1.726.345 1.15 0 2.074-.576 2.768-1.726.23-.345.345-.806.345-1.382 0-.576-.115-1.037-.345-1.382-.23-.345-.576-.576-1.038-.806l-1.15.69c.23.23.345.576.345 1.038 0 .23-.058.46-.173.69z"/>
-  </svg>
-);
+import { TbBrandCSharp, TbBrandAzure, TbBrandAws } from 'react-icons/tb';
 
 // Custom Java icon SVG (simplified Java logo)
 const JavaIcon = ({ className }) => (
@@ -111,38 +106,9 @@ const SqlServerIcon = ({ className }) => (
   </svg>
 );
 
-// Custom Azure icon SVG (cloud shape)
-const AzureIcon = ({ className }) => (
-  <svg 
-    className={className}
-    width="16" 
-    height="16" 
-    viewBox="0 0 24 24" 
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M19.36 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
-  </svg>
-);
-
-// Custom AWS icon SVG (arrow/arc shape representing AWS logo)
-const AwsIcon = ({ className }) => (
-  <svg 
-    className={className}
-    width="16" 
-    height="16" 
-    viewBox="0 0 24 24" 
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l8 4v7.64l-8 4-8-4V8.18l8-4z"/>
-    <path d="M12 8l-4 2v4l4 2 4-2v-4l-4-2zm0 1.36l2.5 1.25v2.78L12 14.64l-2.5-1.25v-2.78L12 9.36z"/>
-  </svg>
-);
-
 const techIconMap = {
   // Programming Languages
-  'C#': CSharpIcon,
+  'C#': TbBrandCSharp,
   'Python': SiPython,
   'Java': JavaIcon,
   'JavaScript': SiJavascript,
@@ -152,6 +118,8 @@ const techIconMap = {
   'Flask': SiFlask,
   'ReactJS': SiReact,
   'React': SiReact,
+  'Spring Boot': SiSpringboot,
+  'SpringBoot': SiSpringboot,
   // AI & Machine Learning
   'PyTorch': SiPytorch,
   'Scikit-learn': ScikitLearnIcon,
@@ -162,12 +130,26 @@ const techIconMap = {
   'MongoDB': SiMongodb,
   'OpenSearch': OpenSearchIcon,
   // Cloud Platforms
-  'Azure': AzureIcon,
-  'AWS': AwsIcon,
+  'Azure': TbBrandAzure,
+  'AWS': TbBrandAws,
   // Data & Orchestration
   'Docker': SiDocker,
   'Spark': SiApachespark,
   'Kafka': SiApachekafka,
+  'MLFlow': SiMlflow,
+  'MLflow': SiMlflow,
+  'Kubernetes': SiKubernetes,
+  'K8S': SiKubernetes,
+  'K8s': SiKubernetes,
+  'Flink': SiApacheflink,
+  'Apache Flink': SiApacheflink,
+  'Ansible': SiAnsible,
+  'Nginx': SiNginx,
+  'Terraform': SiTerraform,
+  'Airflow': SiApacheairflow,
+  'Apache Airflow': SiApacheairflow,
+  // Common project-card aliases
+  'Pytorch': SiPytorch,
 };
 
 const TechIcon = ({ techName, className = '' }) => {

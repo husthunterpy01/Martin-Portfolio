@@ -7,6 +7,7 @@ import {
   FaFolderOpen,
   FaEnvelope,
 } from 'react-icons/fa';
+import avatarImg from '../image/my_avatar.jpg';
 
 const highlights = [
   'Backend Development',
@@ -53,7 +54,9 @@ function Home() {
 
       <div className="hero-content">
         <div className="hero-intro">
-          <span className="hero-badge">Software Engineer Portfolio</span>
+          <div className="hero-avatar">
+            <img src={avatarImg} alt="Martin Dang" />
+          </div>
           <p className="hero-tag">Hello, I&apos;m</p>
           <h1 className="hero-title">Martin Dang</h1>
           <p className="hero-subtitle">

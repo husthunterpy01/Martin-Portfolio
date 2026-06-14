@@ -1,4 +1,5 @@
 import React from 'react';
+import TechIcon from './TechIcon';
 
 const ProjectCard = ({ title, desc, tech, live, github, img, topic }) => {
   return (
@@ -16,6 +17,7 @@ const ProjectCard = ({ title, desc, tech, live, github, img, topic }) => {
       <div className="tech-list">
         {tech?.map((t, index) => (
           <span key={index} className="tech-pill">
+            <TechIcon techName={t} className="tech-pill-icon" />
             {t}
           </span>
         ))}

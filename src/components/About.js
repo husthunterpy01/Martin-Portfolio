@@ -14,7 +14,7 @@ const techStacks = [
   {
     label: 'Web & Application',
     icon: '🌐',
-    items: ['ASP.NET', 'FastAPI', 'Flask', 'ReactJS'],
+    items: ['ASP.NET', 'FastAPI', 'Flask', 'ReactJS', 'Spring Boot'],
   },
   {
     label: 'AI & Machine Learning',
@@ -35,6 +35,11 @@ const techStacks = [
     label: 'Data & Orchestration',
     icon: '📦',
     items: ['Docker', 'Spark', 'Kafka'],
+  },
+  {
+    label: 'MLOps & Infrastructure',
+    icon: '🛠️',
+    items: ['MLFlow', 'Kubernetes', 'Flink', 'Airflow', 'Ansible', 'Nginx', 'Terraform'],
   },
 ];
 

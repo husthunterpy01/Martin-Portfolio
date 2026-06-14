@@ -33,7 +33,7 @@ const experiences = [
     company: 'FPT Software',
     companyIcon: fptIcon,
     location: 'Hanoi, Vietnam',
-    period: 'Jan 2024 – Jan 2025',
+    period: 'Jan 2024 – Feb 2025',
     details: [
       'Developed high-performance RESTful APIs with ASP.NET for a US-based pension payroll platform using Clean Architecture and CQRS, supporting ~500 concurrent users.',
       'Raised automated test coverage from 42% to over 80% using xUnit and CI-friendly test suites.',
