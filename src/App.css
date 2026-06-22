@@ -2436,7 +2436,8 @@ body.light-mode .page-btn.active {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  height: 470px;
+  min-height: 470px;
+  height: auto;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
   position: relative;
   overflow: hidden;
@@ -2559,8 +2560,6 @@ body.light-mode .project-card .tech-pill {
   flex-wrap: wrap;
   gap: 0.4rem;
   margin-top: 0.4rem;
-  max-height: 3.9rem;
-  overflow: hidden;
 }
 
 .project-card .tech-pill {
