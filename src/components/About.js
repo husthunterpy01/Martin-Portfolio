@@ -1,199 +1,145 @@
-import React, { useState } from 'react';
-import { FaGraduationCap, FaUniversity, FaChevronDown, FaRegCalendarAlt } from 'react-icons/fa';
+import React from 'react';
+import {
+  PiCode,
+  PiGlobe,
+  PiBrain,
+  PiDatabase,
+  PiCloud,
+  PiPackage,
+} from 'react-icons/pi';
 import TechIcon from './TechIcon';
-import HoloCube from './HoloCube';
+import Timeline from './Timeline';
 import uwaIcon from '../image/school_icon/logo_uwa.png';
 import hustIcon from '../image/school_icon/hust_logo.png';
 
 const techStacks = [
   {
-    label: 'Programming Languages',
-    icon: '💻',
-    items: ['C#', 'Python', 'Java', 'JavaScript'],
+    label: 'Languages',
+    icon: PiCode,
+    items: ['Python', 'C#', 'Java', 'JavaScript'],
   },
   {
-    label: 'Web & Application',
-    icon: '🌐',
-    items: ['ASP.NET', 'FastAPI', 'Flask', 'ReactJS', 'Spring Boot'],
+    label: 'Frameworks',
+    icon: PiGlobe,
+    items: [
+      'ASP.NET',
+      'Spring Boot',
+      'FastAPI',
+      'Flask',
+      'ReactJS',
+      'NextJs',
+      'Angular',
+    ],
   },
   {
-    label: 'AI & Machine Learning',
-    icon: '🤖',
-    items: ['PyTorch', 'Scikit-learn', 'TensorFlow'],
+    label: 'Artificial Intelligence',
+    icon: PiBrain,
+    items: ['PyTorch', 'Scikit-learn', 'HuggingFace', 'TensorFlow'],
   },
   {
-    label: 'Databases & Search',
-    icon: '🗄️',
-    items: ['SQL Server', 'MySQL', 'MongoDB', 'OpenSearch'],
+    label: 'Databases',
+    icon: PiDatabase,
+    items: ['PostgreSQL', 'SQL Server', 'MongoDB', 'MySQL', 'OpenSearch'],
   },
   {
-    label: 'Cloud Platforms',
-    icon: '☁️',
-    items: ['Azure', 'AWS'],
+    label: 'Cloud',
+    icon: PiCloud,
+    items: ['AWS', 'Azure'],
+    note: 'AWS: Redshift, S3, Glue, EC2. Azure: Data Lake, Function, Container Apps.',
   },
   {
-    label: 'Data & Orchestration',
-    icon: '📦',
-    items: ['Docker', 'Spark', 'Kafka'],
-  },
-  {
-    label: 'MLOps & Infrastructure',
-    icon: '🛠️',
-    items: ['MLFlow', 'Kubernetes', 'Flink', 'Airflow', 'Ansible', 'Nginx', 'Terraform'],
+    label: 'Orchestration and data',
+    icon: PiPackage,
+    items: ['Docker', 'Github Actions', 'dbt', 'Airflow', 'Kafka', 'Spark'],
   },
 ];
 
 const education = [
   {
-    degree: 'Master of Information Technology (Applied Computing Specialisation)',
-    school: 'University of Western Australia (UWA)',
-    schoolIcon: uwaIcon,
-    period: '2025 – 2026',
+    title: 'Master of Information Technology (Applied Computing)',
+    org: 'University of Western Australia (UWA)',
+    logo: uwaIcon,
+    period: 'Feb 2025 - Dec 2026 (expected)',
     details: [
+      'CGPA: 6.33 / 7.',
       'Specialised in applied computing with a focus on software engineering, distributed systems, and cloud computing.',
       'Built full-stack and data-driven applications through practical, project-based coursework.',
       'Applied machine learning and data analytics techniques to real-world software problems.',
     ],
   },
   {
-    degree: 'Bachelor of Electronics and Telecommunications Engineering',
-    school: 'Hanoi University of Science and Technology',
-    schoolIcon: hustIcon,
-    period: '2019 – 2023',
+    title: 'Bachelor of Electronics and Telecommunications Engineering',
+    org: 'Hanoi University of Science and Technology',
+    logo: hustIcon,
+    period: 'Aug 2019 - Oct 2023',
     details: [
+      'GPA: 3.72 / 4.0.',
       'Completed foundational and advanced coursework in electronics, programming, and telecommunications systems.',
       'Focused on software engineering, embedded systems, and database management throughout the degree.',
       'Developed graduation project on bee sound classification using deep learning, later published in Ecological Informatics (Elsevier, 2023).',
-      'Built multiple OOP-based applications using Java, C, and Python during academic and lab projects.',
     ],
   },
 ];
 
-const About = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const toggleEducation = (idx) => {
-    setOpenIndex((prev) => (prev === idx ? null : idx));
-  };
-
-  return (
-    <>
-      <section id="about" className="about page-section">
-        <h2>About Me</h2>
-        <p className="page-intro">
-          Software developer and AI enthusiast with hands-on experience building
-          production systems in .NET and Python — spanning backend architecture,
-          RESTful APIs, machine learning models, and scalable cloud applications.
-          I care about writing clean, maintainable code and designing systems that
-          stay reliable as they grow, whether that means tightening performance,
-          improving test coverage, or simplifying a tangled workflow.
-        </p>
-        <p>
-          Recently I&apos;ve been focusing on machine learning infrastructure,
-          data-driven features, and backend services that support real products.
-          I enjoy working across the full lifecycle — from researching and
-          prototyping an idea, to shipping it through CI/CD, to monitoring it in
-          the wild — and I&apos;m always looking for opportunities to turn complex,
-          messy problems into clear, well-engineered solutions.
-        </p>
-
-        <HoloCube />
-
-        <div className="stack-grid" id="tech-stack">
-          {techStacks.map((stack) => (
-            <div key={stack.label} className="stack-group">
-              <div className="stack-header">
-                <span className="stack-icon" aria-hidden="true">
-                  {stack.icon}
-                </span>
-                <span className="stack-title">{stack.label}</span>
-              </div>
-              <div className="skills">
-                {stack.items.map((item) => (
-                  <span key={item} className="skill-item">
-                    <TechIcon techName={item} className="skill-tech-icon" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+const About = () => (
+  <>
+    <section id="about" className="section page">
+      <div className="container">
+        <div className="about-copy reveal">
+          <h1 className="page-title">About Me</h1>
+          <p className="page-intro">
+            Software developer and AI enthusiast with hands-on experience
+            building production systems in .NET and Python, spanning backend
+            architecture, RESTful APIs, data pipelines, machine learning models,
+            and cloud applications.
+          </p>
+          <p className="body-copy">
+            I care about writing clean, maintainable code and designing systems
+            that stay reliable as they grow, whether that means tightening
+            performance, improving test coverage, or simplifying a tangled
+            workflow. Recently I have been working on data engineering and
+            automation, and I enjoy the full lifecycle: researching and
+            prototyping an idea, shipping it through CI/CD, and monitoring it in
+            the wild.
+          </p>
         </div>
-      </section>
 
-      <section id="education" className="education page-section">
-        <h2>Education</h2>
+        <div className="stack reveal" id="tech-stack">
+          <h2 className="section-title">Tech stack</h2>
+          <div className="stack-grid">
+            {techStacks.map(({ label, icon: Icon, items, note }) => (
+              <div key={label} className="stack-group">
+                <h3 className="stack-title">
+                  <Icon aria-hidden="true" />
+                  {label}
+                </h3>
+                <ul className="chip-list">
+                  {items.map((item) => (
+                    <li key={item} className="chip">
+                      <TechIcon techName={item} className="chip-icon" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                {note && <p className="stack-note">{note}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" className="section page">
+      <div className="container reveal">
+        <h2 className="page-title page-title-sm">Education</h2>
         <p className="page-intro">
           Academic background in engineering and information technology, with a
           focus on AI, software systems, and applied research.
         </p>
-
-        <div className="timeline">
-          {education.map((edu, idx) => (
-            <div key={edu.school} className="interactive-item">
-              <div
-                className={`timeline-dot ${
-                  openIndex === idx ? 'active-dot' : ''
-                }`}
-              />
-
-              <button
-                className={`timeline-header ${
-                  openIndex === idx ? 'active' : ''
-                }`}
-                onClick={() => toggleEducation(idx)}
-                type="button"
-              >
-                <div className="timeline-header-main">
-                  {edu.schoolIcon ? (
-                    <img
-                      src={edu.schoolIcon}
-                      alt={`${edu.school} logo`}
-                      className="timeline-icon timeline-school-icon"
-                    />
-                  ) : (
-                    <FaGraduationCap className="timeline-icon" />
-                  )}
-                  <div>
-                    <h3 className="timeline-role">{edu.degree}</h3>
-                    <p className="timeline-company">
-                      <FaUniversity
-                        style={{ marginRight: '6px', fontSize: '0.85rem' }}
-                      />
-                      {edu.school}
-                    </p>
-                    <p className="timeline-meta">
-                      <span className="timeline-period">
-                        <FaRegCalendarAlt className="timeline-period-icon" aria-hidden="true" />
-                        {edu.period}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-                <FaChevronDown
-                  className={`chevron ${
-                    openIndex === idx ? 'chevron-open' : ''
-                  }`}
-                />
-              </button>
-
-              <div
-                className={`timeline-details-wrapper ${
-                  openIndex === idx ? 'open' : ''
-                }`}
-              >
-                <ul className="timeline-details">
-                  {edu.details.map((line, i) => (
-                    <li key={i}>{line}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    </>
-  );
-};
+        <Timeline items={education} />
+      </div>
+    </section>
+  </>
+);
 
 export default About;

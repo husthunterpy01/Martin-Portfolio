@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import './App.css';
 
@@ -8,13 +8,9 @@ import About from './components/About';
 import Projects from './components/Project';
 import Contact from './components/Contact';
 import Experience from './components/Experience';
+import Dashboard from './components/Dashboard';
 import Footer from './components/Footer';
-import TechBeacon from './components/TechBeacon';
-import ReleaseInfo from './components/ReleaseInfo';
 import NotFound from './components/NotFound';
-import KeyboardBackground from './components/KeyboardBackground';
-import CodeTypingBackground from './components/CodeTypingBackground';
-import CelestialBackground from './components/CelestialBackground';
 
 function AppContent() {
   const location = useLocation();
@@ -24,18 +20,14 @@ function AppContent() {
       : true;
   const [theme, setTheme] = useState(prefersDark ? 'dark' : 'light');
 
-  useEffect(() => {
-    const body = document.body;
-    if (theme === 'light') {
-      body.classList.add('light-mode');
-    } else {
-      body.classList.remove('light-mode');
-    }
+  useLayoutEffect(() => {
+    document.documentElement.dataset.theme = theme;
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
+
   useEffect(() => {
     if (location.hash) {
       const target = document.querySelector(location.hash);
@@ -47,73 +39,87 @@ function AppContent() {
     window.scrollTo(0, 0);
   }, [location.pathname, location.hash]);
 
+  // Reveal-on-scroll: shows each .reveal block once it enters the viewport.
+  // The hidden state only applies after `reveal-ready` is set, so a failed
+  // script never leaves content invisible.
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px',
-    };
+    const root = document.documentElement;
+    if (typeof IntersectionObserver === 'undefined') return undefined;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
+    root.classList.add('reveal-ready');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
 
-    const sections = document.querySelectorAll('section:not(.hero)');
-    sections.forEach((section) => {
-      section.classList.remove('animate-in');
-      observer.observe(section);
-    });
-
-    const updateScrollProgress = () => {
-      const scrollTop = window.pageYOffset;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      document.documentElement.style.setProperty('--scroll-progress', `${scrollPercent}%`);
-    };
-
-    window.addEventListener('scroll', updateScrollProgress);
-    updateScrollProgress();
-
-    return () => {
-      sections.forEach((section) => {
-        observer.unobserve(section);
-      });
-      window.removeEventListener('scroll', updateScrollProgress);
-    };
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, [location.pathname]);
+
+  // 3D pointer tilt: any element with the `tilt` class leans toward the cursor.
+  // Skipped for touch input and for people who prefer reduced motion.
+  useEffect(() => {
+    const ok =
+      window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+      window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+    if (!ok) return undefined;
+
+    let current = null;
+    const reset = (el) => {
+      el.classList.remove('tilt-active');
+      el.style.transform = '';
+    };
+    const onMove = (e) => {
+      const el = e.target.closest?.('.tilt');
+      if (current && current !== el) reset(current);
+      current = el || null;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      const max = Number(el.dataset.tilt) || 6;
+      el.classList.add('tilt-active');
+      el.style.setProperty('--mx', `${x * 100}%`);
+      el.style.setProperty('--my', `${y * 100}%`);
+      el.style.transform = `perspective(900px) rotateX(${(0.5 - y) * max * 2}deg) rotateY(${(x - 0.5) * max * 2}deg) translateZ(0)`;
+    };
+    const onLeave = () => {
+      if (current) reset(current);
+      current = null;
+    };
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerleave', onLeave);
+    return () => {
+      document.removeEventListener('pointermove', onMove);
+      document.removeEventListener('pointerleave', onLeave);
+    };
+  }, []);
 
   return (
     <div className="App">
-      <div className="grid-overlay" aria-hidden="true" />
-      <CodeTypingBackground />
-      <CelestialBackground />
-      <KeyboardBackground />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main className={location.pathname === '/' ? 'main-home' : 'main-page'}>
+      <main>
+        <div key={location.pathname} className="page-3d">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/volunteer" element={<Navigate to="/experience#volunteer" replace />} />
           <Route path="/education" element={<Navigate to="/about#education" replace />} />
-          <Route
-            path="/projects"
-            element={
-              <>
-                <Projects />
-                <ReleaseInfo />
-              </>
-            }
-          />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </div>
       </main>
-      {location.pathname !== '/about' && <TechBeacon />}
       <Footer />
     </div>
   );

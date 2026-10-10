@@ -1,42 +1,14 @@
-:root {
-  --accent: #818cf8;
-  --accent-hover: #6366f1;
-  --accent-light: #a5b4fc;
-  --accent-rgb: 129, 140, 248;
-}
-
-body.light-mode {
-  --accent: #4f46e5;
-  --accent-hover: #4338ca;
-  --accent-light: #6366f1;
-  --accent-rgb: 79, 70, 229;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  letter-spacing: -0.01em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  letter-spacing: -0.02em;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Geist Mono Variable', ui-monospace, Menlo, Monaco, Consolas, monospace;
 }

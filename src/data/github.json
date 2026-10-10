@@ -1,0 +1,319 @@
+{
+  "generatedAt": "2026-10-10T14:33:15.840Z",
+  "profile": {
+    "login": "husthunterpy01",
+    "url": "https://github.com/husthunterpy01",
+    "publicRepos": 61,
+    "followers": 8,
+    "createdAt": "2021-12-15T13:31:09Z"
+  },
+  "repos": [
+    {
+      "name": "Autonomous_Vehicle_Job_Profiles_Group3",
+      "url": "https://github.com/husthunterpy01/Autonomous_Vehicle_Job_Profiles_Group3",
+      "description": "Capstone project for UWA IT course",
+      "language": "Python",
+      "stars": 2,
+      "pushedAt": "2026-10-08T22:50:20Z"
+    },
+    {
+      "name": "my_technical_hub",
+      "url": "https://github.com/husthunterpy01/my_technical_hub",
+      "description": "A repository containing technical blog posts related to some design decision on my projects. Building a product isn't just about getting it to run — it's about designing it to scale and adapting it to specific real-world conditions",
+      "language": "C#",
+      "stars": 0,
+      "pushedAt": "2026-08-15T09:56:42Z"
+    },
+    {
+      "name": "Martin-Portfolio",
+      "url": "https://github.com/husthunterpy01/Martin-Portfolio",
+      "description": "A portfolio of Martin showcase what he's already done",
+      "language": "CSS",
+      "stars": 1,
+      "pushedAt": "2026-06-22T03:14:44Z"
+    },
+    {
+      "name": "SwanFlip-Marketplace",
+      "url": "https://github.com/husthunterpy01/SwanFlip-Marketplace",
+      "description": "Project on CITS5505 Agile Web ",
+      "language": "Python",
+      "stars": 0,
+      "pushedAt": "2026-05-28T08:56:29Z"
+    },
+    {
+      "name": "CITS5505-Individual",
+      "url": "https://github.com/husthunterpy01/CITS5505-Individual",
+      "description": "The basic HTML interface for individual project",
+      "language": "HTML",
+      "stars": 0,
+      "pushedAt": "2026-04-15T03:23:22Z"
+    },
+    {
+      "name": "UWA_material_and_projects",
+      "url": "https://github.com/husthunterpy01/UWA_material_and_projects",
+      "description": "A directory to summarize all subjects including materials and lab I have learned in UWA 2025-2026",
+      "language": "Jupyter Notebook",
+      "stars": 0,
+      "pushedAt": "2026-01-25T17:15:28Z"
+    },
+    {
+      "name": "agent_ConnectOnion_application",
+      "url": "https://github.com/husthunterpy01/agent_ConnectOnion_application",
+      "description": "An AI application using ConnectOnion framework",
+      "language": "Python",
+      "stars": 0,
+      "pushedAt": "2025-11-20T14:57:24Z"
+    },
+    {
+      "name": "Movie-Recommendation-System",
+      "url": "https://github.com/husthunterpy01/Movie-Recommendation-System",
+      "description": "An app-based move recommendation system using MySQL and Java Swing",
+      "language": "Java",
+      "stars": 0,
+      "pushedAt": "2025-11-16T09:52:57Z"
+    },
+    {
+      "name": "Angular_FE_Study",
+      "url": "https://github.com/husthunterpy01/Angular_FE_Study",
+      "description": "Some notes about CSS, HTML and Angular framework for Frontend development",
+      "language": "HTML",
+      "stars": 0,
+      "pushedAt": "2025-11-13T06:17:21Z"
+    },
+    {
+      "name": "ML-Processing-Pipeline",
+      "url": "https://github.com/husthunterpy01/ML-Processing-Pipeline",
+      "description": null,
+      "language": null,
+      "stars": 0,
+      "pushedAt": "2025-10-27T02:04:13Z"
+    },
+    {
+      "name": "mlops_practice",
+      "url": "https://github.com/husthunterpy01/mlops_practice",
+      "description": "A practice on mlops tools and scripting",
+      "language": null,
+      "stars": 0,
+      "pushedAt": "2025-04-04T10:21:45Z"
+    },
+    {
+      "name": "microserivce_ecommerce_website",
+      "url": "https://github.com/husthunterpy01/microserivce_ecommerce_website",
+      "description": "A mock website with multiple functions for practicing with microservice structure using ASP.NET, NodeJS and Golang",
+      "language": null,
+      "stars": 0,
+      "pushedAt": "2025-04-04T05:05:33Z"
+    },
+    {
+      "name": "data_zoomcamp",
+      "url": "https://github.com/husthunterpy01/data_zoomcamp",
+      "description": "A practice on Cloud and other techniques for DE tasks",
+      "language": null,
+      "stars": 0,
+      "pushedAt": "2025-01-13T13:50:28Z"
+    },
+    {
+      "name": "Dialog-Summarization-System",
+      "url": "https://github.com/husthunterpy01/Dialog-Summarization-System",
+      "description": null,
+      "language": "Jupyter Notebook",
+      "stars": 12,
+      "pushedAt": "2025-01-11T03:09:52Z"
+    },
+    {
+      "name": "DataStreaming",
+      "url": "https://github.com/husthunterpy01/DataStreaming",
+      "description": null,
+      "language": "Python",
+      "stars": 0,
+      "pushedAt": "2024-11-20T14:17:20Z"
+    },
+    {
+      "name": "AWS_DataEngineer",
+      "url": "https://github.com/husthunterpy01/AWS_DataEngineer",
+      "description": "A repository with all the exercises and lab works on AWS DE course on Udacity ",
+      "language": "Jupyter Notebook",
+      "stars": 0,
+      "pushedAt": "2024-11-14T16:09:11Z"
+    },
+    {
+      "name": "Csharp_platform",
+      "url": "https://github.com/husthunterpy01/Csharp_platform",
+      "description": "Practicing create a platform using C#, .NET and winform",
+      "language": "C#",
+      "stars": 0,
+      "pushedAt": "2024-11-07T15:51:47Z"
+    },
+    {
+      "name": "GenerativeAI-AWS-project",
+      "url": "https://github.com/husthunterpy01/GenerativeAI-AWS-project",
+      "description": "A project to train a LLM model on AWS SageMaker Service",
+      "language": "Jupyter Notebook",
+      "stars": 0,
+      "pushedAt": "2024-10-07T13:25:54Z"
+    },
+    {
+      "name": "FPT_Exercise",
+      "url": "https://github.com/husthunterpy01/FPT_Exercise",
+      "description": null,
+      "language": "C#",
+      "stars": 0,
+      "pushedAt": "2024-09-12T15:17:50Z"
+    },
+    {
+      "name": "Translation-Machine",
+      "url": "https://github.com/husthunterpy01/Translation-Machine",
+      "description": "A simple translation machine model for document translation using Deep Learning Technique",
+      "language": "Python",
+      "stars": 0,
+      "pushedAt": "2024-05-01T04:01:05Z"
+    },
+    {
+      "name": "BigData_Analyst",
+      "url": "https://github.com/husthunterpy01/BigData_Analyst",
+      "description": "Testing on different tools to use different tools of Data Engineer for the running process",
+      "language": "Jupyter Notebook",
+      "stars": 0,
+      "pushedAt": "2023-10-07T07:43:29Z"
+    },
+    {
+      "name": "VND_classification",
+      "url": "https://github.com/husthunterpy01/VND_classification",
+      "description": null,
+      "language": "Python",
+      "stars": 0,
+      "pushedAt": "2023-09-22T02:47:47Z"
+    },
+    {
+      "name": "VHDL_CodeCoverageReportSample-20221_Classes_Exer",
+      "url": "https://github.com/husthunterpy01/VHDL_CodeCoverageReportSample-20221_Classes_Exer",
+      "description": "Tutorials how to coverage data from verilog file into the report web-based",
+      "language": "VHDL",
+      "stars": 1,
+      "pushedAt": "2023-09-18T07:27:49Z"
+    },
+    {
+      "name": "ML_testing_deployment",
+      "url": "https://github.com/husthunterpy01/ML_testing_deployment",
+      "description": "A test on embedding the AI model into website/app",
+      "language": "Python",
+      "stars": 0,
+      "pushedAt": "2023-08-23T15:30:04Z"
+    },
+    {
+      "name": "XAI_env",
+      "url": "https://github.com/husthunterpy01/XAI_env",
+      "description": "Building a model to improve the results of 2 datasets from NASA",
+      "language": "Jupyter Notebook",
+      "stars": 0,
+      "pushedAt": "2023-07-13T12:28:46Z"
+    },
+    {
+      "name": "Microprocessors",
+      "url": "https://github.com/husthunterpy01/Microprocessors",
+      "description": "A small project using STM32 and DHT11 for fan-speed control system",
+      "language": null,
+      "stars": 0,
+      "pushedAt": "2023-03-23T05:40:42Z"
+    },
+    {
+      "name": "Project2",
+      "url": "https://github.com/husthunterpy01/Project2",
+      "description": "Smoke and gas sensor system using Atmega16 and Module MQ135",
+      "language": "C",
+      "stars": 1,
+      "pushedAt": "2023-03-05T03:47:58Z"
+    },
+    {
+      "name": "SISO---4QAM",
+      "url": "https://github.com/husthunterpy01/SISO---4QAM",
+      "description": "Project for the Wirelesss Communication Subject",
+      "language": "MATLAB",
+      "stars": 0,
+      "pushedAt": "2023-02-06T06:22:39Z"
+    },
+    {
+      "name": "Bike-rental-system",
+      "url": "https://github.com/husthunterpy01/Bike-rental-system",
+      "description": null,
+      "language": "C++",
+      "stars": 0,
+      "pushedAt": "2023-01-31T17:45:10Z"
+    },
+    {
+      "name": "VHDL_Proj",
+      "url": "https://github.com/husthunterpy01/VHDL_Proj",
+      "description": "Code + various source of Verilog HDL Subject",
+      "language": "Jupyter Notebook",
+      "stars": 0,
+      "pushedAt": "2023-01-30T14:35:32Z"
+    }
+  ],
+  "languages": {
+    "Python": 7,
+    "C#": 3,
+    "CSS": 1,
+    "HTML": 2,
+    "Jupyter Notebook": 7,
+    "Java": 1,
+    "VHDL": 1,
+    "C": 1,
+    "MATLAB": 1,
+    "C++": 1
+  },
+  "commitsByWeek": {
+    "2026-10-05": 5,
+    "2026-09-28": 3,
+    "2026-09-21": 6,
+    "2026-09-14": 3,
+    "2026-09-07": 1,
+    "2026-08-31": 3,
+    "2026-08-24": 2,
+    "2026-08-10": 3,
+    "2026-08-03": 3,
+    "2026-07-27": 3,
+    "2026-07-20": 2,
+    "2026-07-13": 1,
+    "2026-06-22": 1,
+    "2026-06-08": 1,
+    "2026-06-01": 3,
+    "2026-05-11": 8,
+    "2026-05-04": 9,
+    "2026-04-27": 1,
+    "2026-04-20": 5,
+    "2026-04-13": 1,
+    "2026-04-06": 15
+  },
+  "recent": [
+    {
+      "repo": "Autonomous_Vehicle_Job_Profiles_Group3",
+      "date": "2026-10-08T22:50:20Z",
+      "message": "feat: edit personal information and change password on the account page (#181)"
+    },
+    {
+      "repo": "Autonomous_Vehicle_Job_Profiles_Group3",
+      "date": "2026-10-08T10:51:34Z",
+      "message": "Feat/martin/update e2e and readme (#177)"
+    },
+    {
+      "repo": "Autonomous_Vehicle_Job_Profiles_Group3",
+      "date": "2026-10-08T09:00:10Z",
+      "message": "fix: apply --max-jobs to each company response (no limit by default) (#176)"
+    },
+    {
+      "repo": "Autonomous_Vehicle_Job_Profiles_Group3",
+      "date": "2026-10-07T05:42:51Z",
+      "message": "Fix/martin/data quality seniority url salary (#170)"
+    },
+    {
+      "repo": "Autonomous_Vehicle_Job_Profiles_Group3",
+      "date": "2026-10-06T05:49:26Z",
+      "message": "docs: update README architecture diagram and add project structure (#168)"
+    },
+    {
+      "repo": "Autonomous_Vehicle_Job_Profiles_Group3",
+      "date": "2026-10-03T09:13:00Z",
+      "message": "Fix missing/wrong job locations: Supabase mirror drift, delimiter bug, TIER IV scraper gap (#155)"
+    }
+  ]
+}
