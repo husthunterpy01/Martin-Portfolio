@@ -1,9 +1,11 @@
 {
   "files": {
-    "main.css": "/Martin-Portfolio/static/css/main.727f8de7.css",
-    "main.js": "/Martin-Portfolio/static/js/main.f47a8856.js",
+    "main.css": "/Martin-Portfolio/static/css/main.7ec68f89.css",
+    "main.js": "/Martin-Portfolio/static/js/main.4730a2c3.js",
     "static/js/453.8febcf4d.chunk.js": "/Martin-Portfolio/static/js/453.8febcf4d.chunk.js",
+    "static/media/av_job_architecture.svg": "/Martin-Portfolio/static/media/av_job_architecture.541b61600de3e0caeb9756644dbaa6b6.svg",
     "static/media/movie_proj.png": "/Martin-Portfolio/static/media/movie_proj.4b476fd1302ce6b15281.png",
+    "static/media/av_job_handling.svg": "/Martin-Portfolio/static/media/av_job_handling.657785ac66b5fbf23ff25938470c90df.svg",
     "static/media/my_avatar.jpg": "/Martin-Portfolio/static/media/my_avatar.1891cfc84590c01ed1ea.jpg",
     "static/media/nli_proj.png": "/Martin-Portfolio/static/media/nli_proj.55a19c1e3e08bfdb2298.png",
     "static/media/swan_flip.png": "/Martin-Portfolio/static/media/swan_flip.ec1d20095563d4e4e10e.png",
@@ -12,15 +14,26 @@
     "static/media/bee_proj.png": "/Martin-Portfolio/static/media/bee_proj.40085db3451e65fa863c.png",
     "static/media/fpt.png": "/Martin-Portfolio/static/media/fpt.496a34ee8480749ad016.png",
     "static/media/fil.png": "/Martin-Portfolio/static/media/fil.9b6573cec0af049ce42b.png",
+    "static/media/geist-latin-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-latin-wght-normal.ee5d167b615cdb197f4a.woff2",
     "static/media/logo_uwa.png": "/Martin-Portfolio/static/media/logo_uwa.f17cf9b1128b05b5635c.png",
     "static/media/project_placeholder.png": "/Martin-Portfolio/static/media/project_placeholder.5ae58f6e097603a1aaad.png",
+    "static/media/geist-mono-latin-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-mono-latin-wght-normal.8915f32bc9d51b44d11a.woff2",
+    "static/media/geist-latin-ext-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-latin-ext-wght-normal.b29dbc4234e76289a5b9.woff2",
+    "static/media/geist-cyrillic-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-cyrillic-wght-normal.e1e85cd9eab54096528f.woff2",
+    "static/media/geist-mono-latin-ext-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-mono-latin-ext-wght-normal.62a3bc4f669903381d47.woff2",
+    "static/media/geist-mono-cyrillic-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-mono-cyrillic-wght-normal.3f8363306daa9a51bc69.woff2",
+    "static/media/geist-vietnamese-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-vietnamese-wght-normal.ed8ddc5c3f2df573fa57.woff2",
+    "static/media/geist-mono-vietnamese-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-mono-vietnamese-wght-normal.7da6d79fa235f24f2930.woff2",
+    "static/media/geist-cyrillic-ext-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-cyrillic-ext-wght-normal.141916beb91c487496c8.woff2",
+    "static/media/geist-mono-cyrillic-ext-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-mono-cyrillic-ext-wght-normal.69fc1fa0544d8241186e.woff2",
+    "static/media/geist-mono-symbols2-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-mono-symbols2-wght-normal.2d848fc9308af046051c.woff2",
     "index.html": "/Martin-Portfolio/index.html",
-    "main.727f8de7.css.map": "/Martin-Portfolio/static/css/main.727f8de7.css.map",
-    "main.f47a8856.js.map": "/Martin-Portfolio/static/js/main.f47a8856.js.map",
+    "main.7ec68f89.css.map": "/Martin-Portfolio/static/css/main.7ec68f89.css.map",
+    "main.4730a2c3.js.map": "/Martin-Portfolio/static/js/main.4730a2c3.js.map",
     "453.8febcf4d.chunk.js.map": "/Martin-Portfolio/static/js/453.8febcf4d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.727f8de7.css",
-    "static/js/main.f47a8856.js"
+    "static/css/main.7ec68f89.css",
+    "static/js/main.4730a2c3.js"
   ]
 }
