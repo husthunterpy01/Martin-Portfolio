@@ -1,3 +1,4 @@
+import { triggerCat } from './PixelCat';
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { PiGithubLogo, PiLinkedinLogo, PiEnvelopeSimple } from 'react-icons/pi';
@@ -74,6 +75,7 @@ const Contact = () => {
       );
 
       setStatus('success');
+      triggerCat();
       setForm(EMPTY_FORM);
     } catch (err) {
       console.error('EmailJS failed:', err);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { PiArrowRight, PiArrowUpRight } from 'react-icons/pi';
+import highlight from './highlight';
 import TechIcon from './TechIcon';
 
 const ProjectCard = ({
@@ -42,7 +43,7 @@ const ProjectCard = ({
         {bullets && (
           <ul className="project-bullets">
             {bullets.map((b) => (
-              <li key={b}>{b}</li>
+              <li key={b}>{highlight(b)}</li>
             ))}
           </ul>
         )}

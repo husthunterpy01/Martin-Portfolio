@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { PiArrowUpRight, PiCornersOut, PiX } from 'react-icons/pi';
+import highlight from './highlight';
 import TechIcon from './TechIcon';
 
 const HIDE_DELAY = 500;
@@ -169,7 +170,7 @@ const ProjectModal = ({ project, onClose }) => {
           {bullets && (
             <ul className="project-bullets">
               {bullets.map((b) => (
-                <li key={b}>{b}</li>
+                <li key={b}>{highlight(b)}</li>
               ))}
             </ul>
           )}

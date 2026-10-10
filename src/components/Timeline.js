@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import highlight from './highlight';
 import { PiCaretDown, PiMapPin, PiCalendarBlank } from 'react-icons/pi';
 
 // Accordion timeline shared by Experience and Education.
@@ -47,7 +48,7 @@ function Timeline({ items, defaultOpen = -1 }) {
             >
               <ul className="timeline-details">
                 {item.details.map((line) => (
-                  <li key={line}>{line}</li>
+                  <li key={line}>{highlight(line)}</li>
                 ))}
               </ul>
             </div>

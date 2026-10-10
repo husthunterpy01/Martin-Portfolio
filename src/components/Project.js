@@ -2,6 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { PiArrowRight, PiPenNib } from 'react-icons/pi';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
+import { triggerCat } from './PixelCat';
 import chatbotImg from '../image/proj_image/chatbot_proj.png';
 import movieMgmtImg from '../image/proj_image/movie_proj.png';
 import beeImg from '../image/proj_image/bee_proj.png';
@@ -225,7 +226,10 @@ const Projects = () => {
               <ProjectCard
                 key={proj.title}
                 {...proj}
-                onOpen={() => setSelected(proj)}
+                onOpen={() => {
+                  setSelected(proj);
+                  triggerCat();
+                }}
               />
             ))}
           </div>

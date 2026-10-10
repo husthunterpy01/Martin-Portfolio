@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { PiSun, PiMoon, PiList, PiX } from 'react-icons/pi';
+import { PiSun, PiMoon, PiList, PiX, PiQuestion } from 'react-icons/pi';
 
 const navItems = [
   { to: '/', label: 'Home', end: true },
@@ -11,7 +11,7 @@ const navItems = [
   { to: '/contact', label: 'Contact' },
 ];
 
-const Navbar = ({ theme, toggleTheme }) => {
+const Navbar = ({ theme, toggleTheme, onHelp }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -39,6 +39,15 @@ const Navbar = ({ theme, toggleTheme }) => {
         </ul>
 
         <div className="nav-actions">
+          <button
+            type="button"
+            className="icon-btn"
+            onClick={onHelp}
+            aria-label="Open site guide"
+            title="Site guide (?)"
+          >
+            <PiQuestion />
+          </button>
           <button
             type="button"
             className="icon-btn"

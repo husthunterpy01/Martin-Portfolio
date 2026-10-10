@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { PiArrowRight } from 'react-icons/pi';
+import { PiArrowRight, PiArrowUpRight } from 'react-icons/pi';
+import highlight from './highlight';
 import avatarImg from '../image/my_avatar.jpg';
 
 const results = [
@@ -19,6 +20,34 @@ const results = [
   {
     value: '80%',
     label: 'less manual follow-up through Power Automate workflows',
+  },
+];
+
+const featured = [
+  {
+    tag: 'Published research',
+    title: 'Bee sound identification, Ecological Informatics',
+    text: 'Deep learning on hive audio spectrograms with CNN models to classify colony health. Peer-reviewed and published by Elsevier in 2023.',
+    stats: ['Elsevier, 2023', 'CNN on spectrograms'],
+    href: 'https://doi.org/10.1016/j.ecoinf.2023.102274',
+    cta: 'Read the paper',
+    external: true,
+  },
+  {
+    tag: 'In production',
+    title: 'Autonomous Vehicle Job Profiles',
+    text: 'A job board and skill-trend dashboard for the autonomous vehicle industry, fed by dbt pipelines and an LLM classifier.',
+    stats: ['1000+ postings classified', '86% classifier accuracy', '38 ATS sources'],
+    href: '/projects',
+    cta: 'See the architecture',
+  },
+  {
+    tag: 'Enterprise scale',
+    title: 'Pension payroll platform at FPT Software',
+    text: 'ASP.NET Core APIs with Clean Architecture and CQRS, plus a WPF tool that rolled software out to many machines in one go.',
+    stats: ['500+ concurrent users', 'Tests 42% to 80%+', '200 machines at once'],
+    href: '/experience',
+    cta: 'View experience',
   },
 ];
 
@@ -161,6 +190,36 @@ function Home() {
               </div>
             ))}
           </dl>
+        </div>
+      </section>
+
+      <section className="section featured reveal">
+        <div className="container">
+          <h2 className="section-title">Special work</h2>
+          <div className="featured-grid">
+            {featured.map((f) => (
+              <article key={f.title} className="featured-card tilt" data-tilt="5">
+                <p className="featured-tag">{f.tag}</p>
+                <h3 className="featured-title">{f.title}</h3>
+                <p className="featured-text">{f.text}</p>
+                <ul className="featured-stats">
+                  {f.stats.map((st) => (
+                    <li key={st}>{highlight(st)}</li>
+                  ))}
+                </ul>
+                {f.external ? (
+                  <a href={f.href} target="_blank" rel="noreferrer" className="text-link">
+                    {f.cta} <PiArrowUpRight aria-hidden="true" />
+                  </a>
+                ) : (
+                  <Link to={f.href} className="text-link">
+                    {f.cta} <PiArrowRight aria-hidden="true" />
+                  </Link>
+                )}
+                <span className="tilt-glare" aria-hidden="true" />
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

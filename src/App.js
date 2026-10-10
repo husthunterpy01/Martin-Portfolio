@@ -11,6 +11,9 @@ import Experience from './components/Experience';
 import Dashboard from './components/Dashboard';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
+import TerminalDock from './components/TerminalDock';
+import SiteGuide from './components/SiteGuide';
+import PixelCat, { triggerCat } from './components/PixelCat';
 
 function AppContent() {
   const location = useLocation();
@@ -18,6 +21,7 @@ function AppContent() {
     typeof window !== 'undefined'
       ? window.matchMedia('(prefers-color-scheme: dark)').matches
       : true;
+  const [guideOpen, setGuideOpen] = useState(false);
   const [theme, setTheme] = useState(prefersDark ? 'dark' : 'light');
 
   useLayoutEffect(() => {
@@ -25,6 +29,7 @@ function AppContent() {
   }, [theme]);
 
   const toggleTheme = () => {
+    triggerCat();
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
@@ -62,6 +67,17 @@ function AppContent() {
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, [location.pathname]);
+
+  // "?" opens the site guide (ignored while typing in a field).
+  useEffect(() => {
+    const onKey = (e) => {
+      const el = e.target;
+      if (el.closest?.('input, textarea, select, [contenteditable]')) return;
+      if (e.key === '?') setGuideOpen((o) => !o);
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
 
   // 3D pointer tilt: any element with the `tilt` class leans toward the cursor.
   // Skipped for touch input and for people who prefer reduced motion.
@@ -104,7 +120,7 @@ function AppContent() {
 
   return (
     <div className="App">
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar theme={theme} toggleTheme={toggleTheme} onHelp={() => setGuideOpen(true)} />
       <main>
         <div key={location.pathname} className="page-3d">
         <Routes>
@@ -121,6 +137,9 @@ function AppContent() {
         </div>
       </main>
       <Footer />
+      <PixelCat />
+      <TerminalDock theme={theme} setTheme={setTheme} onGuide={() => setGuideOpen(true)} />
+      {guideOpen && <SiteGuide onClose={() => setGuideOpen(false)} />}
     </div>
   );
 }
