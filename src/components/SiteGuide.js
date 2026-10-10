@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { PiX } from 'react-icons/pi';
 
 const TIPS = [
-  ['Move around', 'Use the top menu, or the terminal in the bottom-right corner. Links type a command like cd projects into it before the page changes, and you can type your own: try help.'],
+  ['Move around', 'Use the top menu, or the terminal in the bottom-right corner: type help to see its commands, or try cd projects.'],
   ['Projects', 'Click any project card to open its details. Open "Autonomous Vehicle Job Profiles" to explore its architecture diagram.'],
   ['The architecture diagram', 'Hover a box to see what I did on it. Click the data steps (Ingest, Bronze, Classifying, Labelled categories) to enlarge how each posting is handled.'],
   ['Dashboard', 'Live numbers from my GitHub plus charts of my skills and career. Hover or tab onto any bar for details, or open "View as table".'],
   ['Highlights', 'Green and amber chips mark the metrics worth knowing: results, scale and accuracy.'],
-  ['Little surprises', 'Switch the theme, open a project or send a message, and you might see a visitor run by. Cards also tilt toward your cursor.'],
+  ['Little surprises', 'Switch the theme, open a project and you might see a visitor run by. Type bye in the terminal for an arcade ending. Cards also tilt toward your cursor.'],
 ];
 
 const SHORTCUTS = [

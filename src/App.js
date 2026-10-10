@@ -12,6 +12,8 @@ import Dashboard from './components/Dashboard';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 import TerminalDock from './components/TerminalDock';
+import KeyboardBackground from './components/KeyboardBackground';
+import GameClear from './components/GameClear';
 import SiteGuide from './components/SiteGuide';
 import PixelCat, { triggerCat } from './components/PixelCat';
 
@@ -120,6 +122,7 @@ function AppContent() {
 
   return (
     <div className="App">
+      <KeyboardBackground />
       <Navbar theme={theme} toggleTheme={toggleTheme} onHelp={() => setGuideOpen(true)} />
       <main>
         <div key={location.pathname} className="page-3d">
@@ -138,6 +141,7 @@ function AppContent() {
       </main>
       <Footer />
       <PixelCat />
+      <GameClear />
       <TerminalDock theme={theme} setTheme={setTheme} onGuide={() => setGuideOpen(true)} />
       {guideOpen && <SiteGuide onClose={() => setGuideOpen(false)} />}
     </div>

@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PiTerminalWindow, PiX } from 'react-icons/pi';
 import { triggerCat } from './PixelCat';
+import { triggerGameClear } from './GameClear';
 
 // Page name -> route. The same names work in `cd <page>` and in link transitions.
 const PAGES = {
@@ -12,7 +13,6 @@ const PAGES = {
   dashboard: '/dashboard',
   contact: '/contact',
 };
-const NAME_OF = Object.fromEntries(Object.entries(PAGES).map(([k, v]) => [v, k]));
 
 const HELP = [
   'help            show this list',
@@ -23,36 +23,21 @@ const HELP = [
   'cat            send a visitor running',
   'whoami          who is this',
   'clear           clear the screen',
+  'bye             end the game',
   'exit            close the terminal',
 ];
 
-const TYPE_MS = 45;
-
-const prefixOf = () => {
-  try {
-    return new URL(process.env.PUBLIC_URL || '/', window.location.origin).pathname.replace(/\/$/, '');
-  } catch {
-    return '';
-  }
-};
-
-// Bottom-right terminal: visitors can type commands, and link clicks are
-// "typed" into it as `cd <page>` before the page changes.
+// Bottom-right terminal: visitors type commands (help, cd, theme, bye...).
 function TerminalDock({ theme, setTheme, onGuide }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const [lines, setLines] = useState([]);
   const [input, setInput] = useState('');
-  const [busy, setBusy] = useState(false);
   const inputRef = useRef(null);
   const logRef = useRef(null);
   const history = useRef({ items: [], at: -1 });
   const timers = useRef([]);
-  const autoOpened = useRef(false);
-  const busyRef = useRef(false);
-  const here = useRef(location.pathname);
-  here.current = location.pathname;
 
   const later = (fn, ms) => {
     const t = setTimeout(fn, ms);
@@ -116,6 +101,11 @@ function TerminalDock({ theme, setTheme, onGuide }) {
         case 'clear':
           setLines([]);
           break;
+        case 'bye':
+        case 'quit':
+          print('game clear!');
+          later(triggerGameClear, 450);
+          break;
         case 'exit':
           setOpen(false);
           break;
@@ -125,60 +115,6 @@ function TerminalDock({ theme, setTheme, onGuide }) {
     },
     [navigate, onGuide, print, setTheme, theme]
   );
-  const execRef = useRef(exec);
-  execRef.current = exec;
-
-  // Link clicks: open the dock, type `cd <page>` into the prompt, then run it.
-  useEffect(() => {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const prefix = prefixOf();
-
-    const onClick = (e) => {
-      if (reduced || busyRef.current || e.defaultPrevented || e.button !== 0) return;
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      if (e.target.closest?.('.term-dock')) return;
-      const a = e.target.closest?.('a[href]');
-      if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
-      if (a.origin !== window.location.origin) return;
-      if (prefix && !a.pathname.startsWith(prefix)) return;
-      const pathname = a.pathname.slice(prefix.length) || '/';
-      if (pathname === here.current) return;
-      const name = NAME_OF[pathname];
-      if (!name) return; // unknown route: navigate normally
-
-      e.preventDefault();
-      const command = `cd ${name}`;
-      busyRef.current = true;
-      setBusy(true);
-      setOpen((wasOpen) => {
-        autoOpened.current = !wasOpen;
-        return true;
-      });
-      setInput('');
-      for (let i = 1; i <= command.length; i += 1) {
-        later(() => setInput(command.slice(0, i)), 250 + i * TYPE_MS);
-      }
-      const typed = 250 + command.length * TYPE_MS;
-      later(() => {
-        setInput('');
-        execRef.current(command);
-        if (a.hash) later(() => navigate(`${pathname}${a.hash}`), 0);
-      }, typed + 200);
-      later(() => {
-        busyRef.current = false;
-        setBusy(false);
-        if (autoOpened.current) setOpen(false);
-      }, typed + 1300);
-    };
-
-    document.addEventListener('click', onClick, true);
-    const pending = timers.current;
-    return () => {
-      document.removeEventListener('click', onClick, true);
-      pending.forEach(clearTimeout);
-    };
-  }, [navigate]);
-
   // Backtick toggles the terminal (ignored while typing in a field).
   useEffect(() => {
     const onKey = (e) => {
@@ -191,15 +127,10 @@ function TerminalDock({ theme, setTheme, onGuide }) {
   }, []);
 
   useEffect(() => {
-    if (open && !busy) inputRef.current?.focus({ preventScroll: true });
-  }, [open, busy]);
-
-  const keepOpen = () => {
-    autoOpened.current = false;
-  };
+    if (open) inputRef.current?.focus({ preventScroll: true });
+  }, [open]);
 
   const onKeyDown = (e) => {
-    keepOpen();
     if (e.key === 'Enter') {
       exec(input);
       setInput('');
@@ -217,7 +148,7 @@ function TerminalDock({ theme, setTheme, onGuide }) {
   return (
     <div className="term-dock">
       {open ? (
-        <section className="term-panel" aria-label="Terminal" onPointerDown={keepOpen}>
+        <section className="term-panel" aria-label="Terminal">
           <div className="term-bar">
             <i /><i /><i />
             <span>martin@perth: ~{location.pathname === '/' ? '' : location.pathname}</span>
@@ -240,7 +171,6 @@ function TerminalDock({ theme, setTheme, onGuide }) {
               <input
                 ref={inputRef}
                 value={input}
-                readOnly={busy}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={onKeyDown}
                 spellCheck="false"

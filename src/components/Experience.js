@@ -1,5 +1,6 @@
 import React from 'react';
 import Timeline from './Timeline';
+import RoadTimeline from './RoadTimeline';
 import fptIcon from '../image/company_icon/fpt.png';
 import viettelIcon from '../image/company_icon/viettel.png';
 import filIcon from '../image/company_icon/fil.png';
@@ -94,7 +95,7 @@ const Experience = () => (
           Professional roles across software engineering, data engineering, and
           automation.
         </p>
-        <Timeline items={experiences} defaultOpen={0} />
+        <RoadTimeline items={experiences} />
       </div>
     </section>
 

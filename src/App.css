@@ -1690,3 +1690,187 @@ kbd {
   border: 1px solid var(--border-strong); border-bottom-width: 2px; border-radius: 6px;
   background: var(--surface-2); color: var(--text);
 }
+
+/* ---------- Game clear end card ---------- */
+.gc {
+  position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; cursor: pointer;
+  background: #07040f; color: #fff; font-family: var(--font-mono); overflow: hidden;
+  animation: gc-in 0.25s steps(4) both;
+}
+.gc::before { /* scanlines */
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 3;
+  background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 4px);
+}
+.gc::after { /* neon wash */
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 55%, rgba(255, 56, 140, 0.28), transparent 60%),
+              radial-gradient(ellipse at 20% 0%, rgba(56, 232, 255, 0.18), transparent 55%);
+}
+.gc-leaving { opacity: 0; transition: opacity 0.45s steps(6); }
+.gc-pixels { position: absolute; inset: 0; display: grid; z-index: 4; pointer-events: none; }
+.gc-pixels span { background: #07040f; animation: gc-pixel 0.01s steps(1) forwards; }
+.gc-stage { position: relative; z-index: 2; text-align: center; padding: 0 16px; }
+.gc-clear, .gc-next { margin: 0; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+.gc-clear {
+  font-size: clamp(2.2rem, 9vw, 5.5rem); color: #ff4d9d;
+  text-shadow: 4px 4px 0 #38e8ff, 8px 8px 0 rgba(0, 0, 0, 0.6);
+  animation: gc-slam 0.7s steps(7) 0.5s both, gc-away 0.01s steps(1) 2s forwards;
+}
+.gc-next {
+  position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%);
+  font-size: clamp(1.2rem, 5.5vw, 3.2rem); color: #fff; white-space: nowrap;
+  text-shadow: 3px 0 #ff4d9d, -3px 0 #38e8ff;
+  opacity: 0; animation: gc-show 0.01s steps(1) 2.1s forwards, gc-glitch 0.5s steps(2) 2.1s 3;
+}
+.gc-cursor { display: inline-block; width: 0.5em; height: 0.95em; margin-left: 6px; background: #ff4d9d; vertical-align: -0.1em; animation: blink 0.6s steps(1) infinite; }
+.gc-hint { position: absolute; left: 0; right: 0; top: calc(50% + 4rem); margin: 0; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255, 255, 255, 0.55); opacity: 0; animation: gc-show 0.01s steps(1) 3s forwards; }
+
+@keyframes gc-in { from { opacity: 0; } }
+@keyframes gc-pixel { to { opacity: 0; visibility: hidden; } }
+@keyframes gc-slam { 0% { opacity: 0; transform: scale(3.2) rotate(-4deg); } 70% { transform: scale(0.94) rotate(1deg); } 100% { opacity: 1; transform: none; } }
+@keyframes gc-away { to { opacity: 0; visibility: hidden; } }
+@keyframes gc-show { to { opacity: 1; } }
+@keyframes gc-glitch {
+  0% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-50%) translateX(-6px); text-shadow: -5px 0 #ff4d9d, 5px 0 #38e8ff; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gc, .gc-clear, .gc-next, .gc-hint, .gc-pixels span, .gc-cursor { animation: none !important; }
+  .gc-clear { display: none; }
+  .gc-next { opacity: 1; }
+  .gc-hint { opacity: 1; }
+  .gc-pixels { display: none; }
+}
+
+/* ---------- Keyboard background ---------- */
+.App > main, .App > .footer { position: relative; z-index: 1; }
+.kb-bg {
+  --cap: #d9dce1; --cap-hi: #f4f5f7; --cap-mod: #9aa1ab; --cap-side: #8c929c; --cap-base: #5f6570;
+  --cap-ink: #3a3f47; --case-a: #3a3f47; --case-b: #1d2024; --plate: #101215; --slot: #07080a;
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+}
+:root[data-theme='dark'] .kb-bg {
+  --cap: #34383f; --cap-hi: #454a53; --cap-mod: #23262b; --cap-side: #181a1e; --cap-base: #0c0d0f;
+  --cap-ink: #aab1bb; --case-a: #2a2d33; --case-b: #121316; --plate: #0a0b0d; --slot: #050506;
+}
+.kb-stage {
+  position: absolute; left: 50%; top: 52%; width: min(1400px, 150vw);
+  transform: translate(-50%, -50%); opacity: 0.1;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 35%, transparent 78%);
+  mask-image: radial-gradient(ellipse at 50% 50%, #000 35%, transparent 78%);
+}
+:root[data-theme='light'] .kb-stage { opacity: 0.09; }
+/* Case: anodised aluminium shell with a glowing RGB underglow. */
+.kb-board {
+  position: relative; padding: 18px 22px 30px; border-radius: 22px;
+  background: linear-gradient(180deg, var(--case-a), var(--case-b));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transform: perspective(1400px) rotateX(32deg) rotateZ(-4deg); transform-origin: 50% 50%;
+}
+/* Plate with recessed switch slots. */
+.kb-plate { display: flex; flex-direction: column; gap: 3px; padding: 8px; background: var(--plate); border-radius: 12px; box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.6); }
+.kb-row { display: flex; gap: 3px; }
+.kb-key {
+  position: relative; min-width: 0; height: 52px; padding: 2px; border-radius: 9px;
+  background: var(--slot);
+  /* backlight bleeding through the switch gap */
+  box-shadow: inset 0 0 6px hsl(calc(var(--rgb, 160) + var(--col) * 9) 80% 55% / 0.3);
+}
+.kb-cap {
+  display: grid; place-items: center; width: 100%; height: 100%; border-radius: 7px;
+  background: radial-gradient(ellipse at 50% 35%, var(--cap-hi), var(--cap) 70%);
+  box-shadow: 0 2px 0 var(--cap-side), 0 4px 0 var(--cap-side), 0 5px 0 var(--cap-base),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  transition: transform 0.06s ease-out, box-shadow 0.06s ease-out, background 0.1s;
+}
+.kb-mod .kb-cap { background: radial-gradient(ellipse at 50% 35%, var(--cap-mod), var(--cap-mod) 70%); }
+.kb-legend { font-family: var(--font-mono); font-size: 0.74rem; font-weight: 400; color: var(--cap-ink); text-transform: lowercase; }
+.kb-key:not(.kb-mod) .kb-legend { text-transform: uppercase; }
+.kb-key.down .kb-cap {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--cap-side), 0 2px 0 var(--cap-base), 0 0 14px 1px var(--accent);
+  background: radial-gradient(ellipse at 50% 35%, var(--accent-strong), var(--accent) 75%);
+}
+.kb-key.down .kb-legend { color: var(--accent-ink); }
+@media (max-width: 700px) {
+  .kb-key { height: 34px; padding: 1px; border-radius: 6px; } .kb-cap { border-radius: 5px; }
+  .kb-legend { font-size: 0.55rem; } .kb-board { padding: 10px 10px 18px; } .kb-plate { padding: 4px; gap: 2px; } .kb-row { gap: 2px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .kb-board { animation: rgb-cycle 12s linear infinite; }
+}
+@property --rgb { syntax: '<number>'; inherits: true; initial-value: 160; }
+@keyframes rgb-cycle { from { --rgb: 0; } to { --rgb: 360; } }
+
+/* ---------- Work experience: horizontal road ---------- */
+.hroad-lane { position: relative; height: 150px; margin-bottom: 8px; }
+.hroad-asphalt {
+  position: absolute; left: 0; right: 0; top: 30px; height: 52px; border-radius: 26px;
+  background: var(--surface-2); border: 2px solid var(--border-strong);
+}
+.hroad-asphalt::before { /* dashed centre line */
+  content: ''; position: absolute; top: 50%; left: 22px; right: 22px; height: 3px; transform: translateY(-50%);
+  background: linear-gradient(to right, var(--text-muted) 0 14px, transparent 14px 28px) 0 0 / 28px 100% repeat-x;
+  opacity: 0.5;
+}
+.hroad-car {
+  position: absolute; top: 6px; width: 64px; height: 32px; margin-left: -32px; z-index: 3;
+  transition-property: left; transition-timing-function: cubic-bezier(0.45, 0, 0.25, 1);
+  transform: translateY(28px); /* sits in the lane */
+}
+.hroad-car-svg { overflow: visible; display: block; }
+.hroad-body { fill: var(--accent); stroke: rgba(0, 0, 0, 0.35); stroke-width: 1; }
+.hroad-glass { fill: rgba(8, 20, 16, 0.75); }
+.hroad-beam { fill: rgba(255, 246, 200, 0.2); opacity: 0; transition: opacity 0.2s; }
+:root[data-theme='light'] .hroad-beam { fill: rgba(255, 190, 40, 0.28); }
+.moving .hroad-beam { opacity: 1; }
+.hroad-tyre { fill: #14161a; stroke: #6b7280; stroke-width: 1.5; }
+.hroad-spoke { stroke: #9aa1ab; stroke-width: 1.5; }
+
+.hroad-stops { list-style: none; margin: 0; padding: 0; }
+.hroad-stops li { position: absolute; top: 56px; transform: translateX(-50%); z-index: 2; width: 0; }
+.hroad-stop {
+  position: absolute; left: 0; top: 0; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 2px; width: 120px;
+  background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: var(--text-muted);
+}
+.hroad-dot {
+  width: 16px; height: 16px; margin-top: -8px; border-radius: 50%; background: var(--surface);
+  border: 2px solid var(--border-strong); transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s var(--ease);
+}
+.hroad-stop.passed .hroad-dot { background: var(--accent); border-color: var(--accent); }
+.hroad-stop.active .hroad-dot { transform: scale(1.35); box-shadow: 0 0 14px var(--accent); }
+.hroad-stop:hover .hroad-dot { border-color: var(--accent); }
+.hroad-stop:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 8px; }
+.hroad-year { margin-top: 30px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text); }
+.hroad-stop.active .hroad-year { color: var(--accent); font-weight: 600; }
+.hroad-org { font-size: 0.75rem; line-height: 1.3; text-align: center; max-width: 110px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+.hroad-nav { display: flex; align-items: center; justify-content: space-between; margin: 8px 0 16px; }
+.hroad-nav .filter:disabled { opacity: 0.4; cursor: default; }
+.hroad-count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
+
+.hroad-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px;
+  display: flex; flex-direction: column; gap: 16px;
+  animation: hroad-card-in 0.5s var(--ease) backwards;
+}
+.hroad-card-head { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 16px; align-items: center; }
+.hroad-card .timeline-details { margin: 0; }
+@keyframes hroad-card-in { from { opacity: 0; transform: perspective(900px) translateY(14px) rotateX(-8deg); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hroad-lane.moving .hroad-asphalt::before { animation: hroad-dash 0.4s linear infinite; }
+  .hroad-lane.moving .hroad-wheel { animation: hroad-spin 0.35s linear infinite; }
+  .hroad-lane.moving .hroad-car-svg { animation: hroad-bump 0.18s steps(2) infinite; }
+}
+@keyframes hroad-dash { to { background-position: -28px 0; } }
+@keyframes hroad-spin { to { transform: rotate(360deg); } }
+@keyframes hroad-bump { 50% { transform: translateY(-1px); } }
+@media (max-width: 700px) {
+  .hroad-org { display: none; }
+  .hroad-stop { width: 60px; }
+  .hroad-lane { height: 120px; }
+}
