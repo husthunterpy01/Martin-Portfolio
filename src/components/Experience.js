@@ -14,9 +14,10 @@ export const experiences = [
     org: 'Shooting Stars',
     logo: shootingStarIcon,
     location: 'Perth, Australia',
-    period: 'July 2026 - Present',
+    period: 'July 2026 - Oct 2026',
     details: [
       'Developed Power Automate workflows to track certificate expiry dates, auto-generating monthly compliance reports and staged reminders, reducing manual follow-up by 80%.',
+      'Built a Power Automate flow that routes Microsoft Forms responses into a SharePoint list and saves each submitted file to OneDrive documents, giving staff one structured, searchable place to manage submissions.',
       'Optimised SharePoint data retrieval logic across 15 views and designed the front end for a new hub, reducing profile load times and improving the user experience.',
     ],
   },

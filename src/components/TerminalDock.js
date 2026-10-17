@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { PiTerminalWindow, PiX } from 'react-icons/pi';
 import { triggerCat } from './PixelCat';
 import { triggerGameClear } from './GameClear';
+import { references } from '../data/references';
 
 // Page name -> route. The same names work in `cd <page>` and in link transitions.
 const PAGES = {
@@ -11,6 +12,7 @@ const PAGES = {
   experience: '/experience',
   projects: '/projects',
   dashboard: '/dashboard',
+  references: '/references',
   contact: '/contact',
 };
 
@@ -22,6 +24,7 @@ const HELP = [
   'guide           open the site guide',
   'cat            send a visitor running',
   'whoami          who is this',
+  'references      list my professional referees',
   'clear           clear the screen',
   'bye             end the game',
   'exit            close the terminal',
@@ -97,6 +100,17 @@ function TerminalDock({ theme, setTheme, onGuide }) {
           break;
         case 'whoami':
           print('martin dang, software engineer. perth, australia.', 'type `cd about` to learn more.');
+          break;
+        case 'references':
+        case 'refs':
+          if (!references.length) {
+            print('referees are available on request.', 'email me via `cd contact`.');
+          } else {
+            references.forEach((r) =>
+              print(`${r.name} - ${r.role}, ${r.org}`, r.email ? `  ${r.email}` : '')
+            );
+          }
+          print('full page: cd references');
           break;
         case 'clear':
           setLines([]);

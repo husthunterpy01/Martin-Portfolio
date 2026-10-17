@@ -9,6 +9,7 @@ import Projects from './components/Project';
 import Contact from './components/Contact';
 import Experience from './components/Experience';
 import Dashboard from './components/Dashboard';
+import References from './components/References';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 import TerminalDock from './components/TerminalDock';
@@ -134,6 +135,7 @@ function AppContent() {
           <Route path="/education" element={<Navigate to="/about#education" replace />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/references" element={<References />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
