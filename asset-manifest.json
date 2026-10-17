@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Martin-Portfolio/static/css/main.345e548a.css",
+    "main.css": "/Martin-Portfolio/static/css/main.e4f8f7ce.css",
     "main.js": "/Martin-Portfolio/static/js/main.88d71ee1.js",
     "static/js/453.8febcf4d.chunk.js": "/Martin-Portfolio/static/js/453.8febcf4d.chunk.js",
     "static/media/av_job_architecture.svg": "/Martin-Portfolio/static/media/av_job_architecture.541b61600de3e0caeb9756644dbaa6b6.svg",
@@ -28,12 +28,12 @@
     "static/media/geist-mono-cyrillic-ext-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-mono-cyrillic-ext-wght-normal.69fc1fa0544d8241186e.woff2",
     "static/media/geist-mono-symbols2-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-mono-symbols2-wght-normal.2d848fc9308af046051c.woff2",
     "index.html": "/Martin-Portfolio/index.html",
-    "main.345e548a.css.map": "/Martin-Portfolio/static/css/main.345e548a.css.map",
+    "main.e4f8f7ce.css.map": "/Martin-Portfolio/static/css/main.e4f8f7ce.css.map",
     "main.88d71ee1.js.map": "/Martin-Portfolio/static/js/main.88d71ee1.js.map",
     "453.8febcf4d.chunk.js.map": "/Martin-Portfolio/static/js/453.8febcf4d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.345e548a.css",
+    "static/css/main.e4f8f7ce.css",
     "static/js/main.88d71ee1.js"
   ]
 }
