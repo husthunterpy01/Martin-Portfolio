@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Martin-Portfolio/static/css/main.30353179.css",
-    "main.js": "/Martin-Portfolio/static/js/main.7e7be84f.js",
+    "main.css": "/Martin-Portfolio/static/css/main.345e548a.css",
+    "main.js": "/Martin-Portfolio/static/js/main.88d71ee1.js",
     "static/js/453.8febcf4d.chunk.js": "/Martin-Portfolio/static/js/453.8febcf4d.chunk.js",
     "static/media/av_job_architecture.svg": "/Martin-Portfolio/static/media/av_job_architecture.541b61600de3e0caeb9756644dbaa6b6.svg",
     "static/media/movie_proj.png": "/Martin-Portfolio/static/media/movie_proj.4b476fd1302ce6b15281.png",
@@ -28,12 +28,12 @@
     "static/media/geist-mono-cyrillic-ext-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-mono-cyrillic-ext-wght-normal.69fc1fa0544d8241186e.woff2",
     "static/media/geist-mono-symbols2-wght-normal.woff2": "/Martin-Portfolio/static/media/geist-mono-symbols2-wght-normal.2d848fc9308af046051c.woff2",
     "index.html": "/Martin-Portfolio/index.html",
-    "main.30353179.css.map": "/Martin-Portfolio/static/css/main.30353179.css.map",
-    "main.7e7be84f.js.map": "/Martin-Portfolio/static/js/main.7e7be84f.js.map",
+    "main.345e548a.css.map": "/Martin-Portfolio/static/css/main.345e548a.css.map",
+    "main.88d71ee1.js.map": "/Martin-Portfolio/static/js/main.88d71ee1.js.map",
     "453.8febcf4d.chunk.js.map": "/Martin-Portfolio/static/js/453.8febcf4d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.30353179.css",
-    "static/js/main.7e7be84f.js"
+    "static/css/main.345e548a.css",
+    "static/js/main.88d71ee1.js"
   ]
 }
